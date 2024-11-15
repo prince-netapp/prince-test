@@ -23,7 +23,7 @@ kind: Service
 metadata:
   name: nginx-svc
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: server.example.com
+    external-dns.alpha.kubernetes.io/hostname: server.spot-finops-internal-dev.com
 spec:
   ports:
     - port: 80
