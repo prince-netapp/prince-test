@@ -1,0 +1,19 @@
+provider: azure
+policy: sync
+commonLabels:
+  azure.workload.identity/use: "true"
+serviceAccount:
+  create: true
+  name: external-dns
+  annotations:
+    azure.workload.identity/client-id: ${AZURE_CLIENT_ID}
+  labels:
+    azure.workload.identity/use: "true"
+azure:
+  secretName: external-dns-azure
+env:
+  - name: AZURE_CLIENT_ID
+    valueFrom:
+      secretKeyRef:
+        name: external-dns-userid-azure
+        key: userAssignedIdentityID
