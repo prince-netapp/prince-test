@@ -6,14 +6,8 @@ serviceAccount:
   create: true
   name: external-dns
   annotations:
-    azure.workload.identity/client-id: ${AZURE_CLIENT_ID}
+    azure.workload.identity/client-id: 404btest1-ba04-4933-bcea-7d002test136
   labels:
     azure.workload.identity/use: "true"
 azure:
   secretName: external-dns-azure
-env:
-  - name: AZURE_CLIENT_ID
-    valueFrom:
-      secretKeyRef:
-        name: external-dns-userid-azure
-        key: userAssignedIdentityID
