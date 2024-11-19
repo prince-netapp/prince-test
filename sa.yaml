@@ -3,7 +3,7 @@ kind: ServiceAccount
 metadata:
   name: external-dns
   namespace: external-dns
-  labels: 
+  labels:
     azure.workload.identity/use: true
-  annotations: 
+  annotations:
     azure.workload.identity/client-id: b309bbad-924d-4628-ba79-3b49a62646a6
