@@ -5,7 +5,10 @@ commonLabels:
 serviceAccount:
   create: true
   name: external-dns
+  annotations:
+    azure.workload.identity/client-id: {{ lookup "v1" "Secret" external-dns "external-dns-userid-azure" | .data.userAssignedIdentityID | base64decode }}
   labels:
     azure.workload.identity/use: "true"
 azure:
   secretName: external-dns-azure
+
