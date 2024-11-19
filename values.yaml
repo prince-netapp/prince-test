@@ -3,6 +3,11 @@ policy: sync
 commonLabels:
   azure.workload.identity/use: "true"
 serviceAccount:
-  create: false
+  create: true
+  name: external-dns
+  annotations:
+    azure.workload.identity/client-id: b309bbad-924d-4628-ba79-3b49a62646a6
+  labels:
+    azure.workload.identity/use: "true"
 azure:
   secretName: external-dns-azure
